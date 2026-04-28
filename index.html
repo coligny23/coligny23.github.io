@@ -1,138 +1,424 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>George Odongo - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>George Odongo | Neo-Tokyo Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      color: #00fff7;
-      background: radial-gradient(circle at top, #0f2027, #05010a);
-      background-attachment: fixed;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 30px;
+    body {
+      min-height: 100vh;
+      font-family: 'Rajdhani', sans-serif;
+      color: #e8ffff;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 0, 170, 0.25), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(0, 255, 255, 0.22), transparent 30%),
+        linear-gradient(180deg, #050014 0%, #09001f 45%, #020008 100%);
+      overflow-x: hidden;
     }
 
-    h1 {
-      font-size: 2.8em;
-      color: #00fff7;
-      text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,0,180,0.05) 1px, transparent 1px);
+      background-size: 45px 45px;
+      animation: gridMove 18s linear infinite;
+      pointer-events: none;
+      z-index: 0;
     }
 
-    h2 {
-      border-bottom: 1px solid #00fff7;
-      padding-bottom: 5px;
-      text-shadow: 0 0 5px #00fff7;
-    }
-
-    p {
-      color: #ccefff;
-    }
-
-    .tagline {
-      color: #ff00ff;
-      text-shadow: 0 0 10px #ff00ff;
-      margin-bottom: 30px;
-    }
-
-    .project {
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid #00fff7;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,255,247,0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(255,0,255,0.7);
-    }
-
-    a {
-      color: #ff00ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a:hover {
-      text-shadow: 0 0 10px #ff00ff;
-    }
-
-    .skills {
-      background: rgba(0,0,0,0.5);
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,255,247,0.3);
-    }
-
-    .footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #aaa;
-    }
-
-    /* glowing dots background */
     body::after {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png');
-      opacity: 0.2;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.025),
+        rgba(255,255,255,0.025) 1px,
+        transparent 1px,
+        transparent 5px
+      );
       pointer-events: none;
+      z-index: 5;
     }
 
+    @keyframes gridMove {
+      from { background-position: 0 0; }
+      to { background-position: 0 900px; }
+    }
+
+    .city {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 260px;
+      background:
+        linear-gradient(to top, #020008, transparent),
+        url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center bottom;
+      opacity: 0.35;
+      z-index: 0;
+      filter: contrast(1.2) saturate(1.4);
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 22px;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .badge {
+      font-family: 'Orbitron', sans-serif;
+      color: #00f7ff;
+      border: 1px solid #00f7ff;
+      padding: 8px 18px;
+      border-radius: 999px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 20px rgba(0,247,255,0.45);
+      background: rgba(0, 247, 255, 0.08);
+      letter-spacing: 2px;
+      font-size: 0.78rem;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow:
+        0 0 8px #00f7ff,
+        0 0 20px #00f7ff,
+        0 0 45px #ff00c8;
+      animation: glitch 3s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 92%, 100% { transform: translate(0); }
+      93% { transform: translate(3px, -2px); }
+      94% { transform: translate(-4px, 2px); }
+      95% { transform: translate(2px, 3px); }
+      96% { transform: translate(0); }
+    }
+
+    .subtitle {
+      margin-top: 22px;
+      font-size: 1.35rem;
+      max-width: 720px;
+      color: #d9fbff;
+      text-shadow: 0 0 10px rgba(0,247,255,0.5);
+    }
+
+    .subtitle span {
+      color: #ff3df2;
+      font-weight: 700;
+    }
+
+    .actions {
+      margin-top: 35px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      font-family: 'Orbitron', sans-serif;
+      padding: 13px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #020008;
+      background: #00f7ff;
+      font-weight: 800;
+      box-shadow: 0 0 25px rgba(0,247,255,0.7);
+      transition: 0.3s;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: #ff3df2;
+      border: 1px solid #ff3df2;
+      box-shadow: 0 0 22px rgba(255,61,242,0.45);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px) scale(1.04);
+      filter: brightness(1.2);
+    }
+
+    section {
+      margin: 80px 0;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #00f7ff;
+      text-shadow: 0 0 18px rgba(0,247,255,0.8);
+      border-left: 4px solid #ff3df2;
+      padding-left: 15px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project {
+      position: relative;
+      padding: 24px;
+      min-height: 240px;
+      border: 1px solid rgba(0,247,255,0.55);
+      background:
+        linear-gradient(135deg, rgba(0,247,255,0.12), rgba(255,0,200,0.08)),
+        rgba(3, 0, 20, 0.75);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      box-shadow:
+        0 0 25px rgba(0,247,255,0.22),
+        inset 0 0 20px rgba(255,0,200,0.08);
+      overflow: hidden;
+      transition: 0.35s;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transition: 0.5s;
+    }
+
+    .project:hover::before {
+      left: 120%;
+    }
+
+    .project:hover {
+      transform: translateY(-10px);
+      border-color: #ff3df2;
+      box-shadow:
+        0 0 35px rgba(255,61,242,0.45),
+        0 0 55px rgba(0,247,255,0.25);
+    }
+
+    .project h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      font-size: 1.25rem;
+      margin-bottom: 15px;
+    }
+
+    .project p {
+      color: #c9f7ff;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .project a {
+      color: #ff3df2;
+      text-decoration: none;
+      font-weight: 800;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .project a:hover {
+      text-shadow: 0 0 12px #ff3df2;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .skill {
+      padding: 10px 16px;
+      border: 1px solid rgba(0,247,255,0.65);
+      border-radius: 999px;
+      color: #ffffff;
+      background: rgba(0,247,255,0.08);
+      box-shadow: 0 0 18px rgba(0,247,255,0.22);
+      font-weight: 700;
+    }
+
+    .contact-card {
+      border: 1px solid rgba(255,61,242,0.65);
+      background: rgba(255,61,242,0.08);
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(255,61,242,0.25);
+    }
+
+    .contact-card a {
+      color: #00f7ff;
+      font-size: 1.2rem;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      color: #9eefff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .japanese {
+      color: #ff3df2;
+      font-weight: 800;
+      letter-spacing: 4px;
+      margin-top: 14px;
+    }
+
+    @media print {
+      body {
+        background: #050014;
+      }
+
+      body::before,
+      body::after,
+      .city {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 30px 0;
+      }
+
+      .btn {
+        box-shadow: none;
+      }
+
+      .project {
+        break-inside: avoid;
+      }
+    }
   </style>
 </head>
+
 <body>
+  <div class="city"></div>
 
-<div class="container">
+  <main class="container">
 
-<h1>George Odongo</h1>
-<p class="tagline">⚡ Developer | AI & Mobile Systems | Building the Future ⚡</p>
+    <section class="hero">
+      <div class="badge">SYSTEM ONLINE // PORTFOLIO 2026</div>
 
-<h2>🚀 Projects</h2>
+      <h1>George<br>Odongo</h1>
 
-<div class="project">
-  <h3>🌿 Natural Remedies App</h3>
-  <p>Offline-first health learning system powered by Flutter, Riverpod, Hive & TFLite.</p>
-  <a href="https://github.com/coligny23/natural_remedies_app">View Code →</a>
-</div>
+      <p class="subtitle">
+        Developer | AI & Mobile Systems <br>
+        Building <span>offline-first intelligence</span>, futuristic mobile tools, and digital systems for real-world impact.
+      </p>
 
-<div class="project">
-  <h3>🌍 Food Security Project</h3>
-  <p>GIS-based system tracking food security and post-harvest losses.</p>
-  <a href="https://github.com/coligny23/un-portfolio">View Code →</a>
-</div>
+      <div class="japanese">ネオ東京 // DIGITAL DREAMS</div>
 
-<div class="project">
-  <h3>✈️ Tourism Website</h3>
-  <p>Modern tourism platform built with Next.js and Tailwind.</p>
-  <a href="https://github.com/coligny23/tourism-web">View Code →</a>
-</div>
+      <div class="actions">
+        <a class="btn" href="https://github.com/coligny23" target="_blank">Enter GitHub</a>
+        <a class="btn secondary" href="mailto:odongog@nm-aist.ac.tz">Contact Me</a>
+      </div>
+    </section>
 
-<h2>🧠 Skills</h2>
-<div class="skills">
-<p>Dart • Python • JavaScript • Flutter • React • AI Systems</p>
-</div>
+    <section>
+      <h2 class="section-title">Featured Projects</h2>
 
-<h2>📡 Contact</h2>
-<p>Email: odongog@nm-aist.ac.tz</p>
+      <div class="projects">
 
-<div class="footer">
-  <p>© 2026 | Designed in the Neon Grid 🌌</p>
-</div>
+        <div class="project">
+          <h3>🌿 Natural Remedies App</h3>
+          <p>
+            Offline-first health learning app designed for low-resource communities.
+            Built with Flutter, Riverpod, Hive, and TFLite.
+          </p>
+          <a href="https://github.com/coligny23/natural_remedies_app" target="_blank">View Code →</a>
+        </div>
 
-</div>
+        <div class="project">
+          <h3>🌍 Food Security Project</h3>
+          <p>
+            GIS-based project focused on food security and post-harvest loss tracking,
+            designed for development and humanitarian insight.
+          </p>
+          <a href="https://github.com/coligny23/un-portfolio" target="_blank">View Code →</a>
+        </div>
 
+        <div class="project">
+          <h3>✈️ Tourism Website</h3>
+          <p>
+            Modern tourism platform built with Next.js, TypeScript, and Tailwind,
+            created for premium African safari experiences.
+          </p>
+          <a href="https://github.com/coligny23/tourism-web" target="_blank">View Code →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Tech Arsenal</h2>
+
+      <div class="skills">
+        <div class="skill">Dart</div>
+        <div class="skill">Python</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Flutter</div>
+        <div class="skill">React</div>
+        <div class="skill">Next.js</div>
+        <div class="skill">Riverpod</div>
+        <div class="skill">Hive</div>
+        <div class="skill">TFLite</div>
+        <div class="skill">GIS</div>
+        <div class="skill">GitHub</div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Transmission</h2>
+
+      <div class="contact-card">
+        <p>Open to internships, collaborations, research projects, and futuristic digital systems.</p>
+        <br>
+        <a href="mailto:odongog@nm-aist.ac.tz">odongog@nm-aist.ac.tz</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 George Odongo // Designed from the Neon Grid
+    </footer>
+
+  </main>
 </body>
 </html>
